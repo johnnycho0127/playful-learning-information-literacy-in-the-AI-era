@@ -1,25 +1,18 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EDM 5XX: Playful Learning for IL in the AI Era | USA</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        usaBlue: '#00205B',
-                        usaRed: '#BF0D3E',
-                        usaSilver: '#A2AAAD'
-                    },
-                    fontFamily: {
-                        sans: ['Noto Sans KR', 'sans-serif'],
-                        header: ['Montserrat', 'sans-serif']
-                    }
+                    colors: { usaBlue: '#00205B', usaRed: '#BF0D3E', usaSilver: '#A2AAAD' },
+                    fontFamily: { sans: ['Open Sans', 'sans-serif'], header: ['Montserrat', 'sans-serif'] }
                 }
             }
         }
@@ -27,225 +20,231 @@
     <style>
         .usa-gradient { background: linear-gradient(135deg, #00205B 0%, #003a88 100%); }
         [x-cloak] { display: none !important; }
+        .tab-active { border-bottom: 4px solid #BF0D3E; color: #00205B; font-weight: bold; }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800 font-sans" x-data="{ activeTab: 'overview', week: 1 }">
+<body class="bg-gray-100 text-gray-800 font-sans" x-data="{ activeTab: 'home', week: 1 }">
 
     <nav class="bg-usaBlue text-white py-4 px-8 sticky top-0 z-50 shadow-xl border-b-4 border-usaRed">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-            <div class="text-left mb-4 md:mb-0">
-                <h2 class="font-header font-bold tracking-tight text-xl italic">UNIVERSITY OF SOUTH ALABAMA</h2>
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div class="mb-4 md:mb-0">
+                <h2 class="font-header font-bold tracking-tight text-xl uppercase">University of South Alabama</h2>
+                <p class="text-[10px] tracking-widest opacity-80 uppercase">College of Education and Professional Studies</p>
             </div>
-            <div class="flex space-x-6 text-sm font-bold">
-                <button @click="activeTab = 'overview'" :class="activeTab === 'overview' ? 'text-usaRed underline underline-offset-8' : 'hover:text-usaSilver'">개요 (OVERVIEW)</button>
-                <button @click="activeTab = 'schedule'" :class="activeTab === 'schedule' ? 'text-usaRed underline underline-offset-8' : 'hover:text-usaSilver'">주차별 강의 (SCHEDULE)</button>
-                <button @click="activeTab = 'assignments'" :class="activeTab === 'assignments' ? 'text-usaRed underline underline-offset-8' : 'hover:text-usaSilver'">과제 및 평가 (GRADING)</button>
-                <button @click="activeTab = 'miro'" :class="activeTab === 'miro' ? 'text-usaRed underline underline-offset-8' : 'hover:text-usaSilver'">MIRO 가이드</button>
+            <div class="flex flex-wrap justify-center gap-4 text-xs font-bold uppercase">
+                <button @click="activeTab = 'home'" :class="activeTab === 'home' ? 'text-usaRed underline underline-offset-8' : 'hover:text-usaSilver'">Overview</button>
+                <button @click="activeTab = 'schedule'" :class="activeTab === 'schedule' ? 'text-usaRed underline underline-offset-8' : 'hover:text-usaSilver'">Schedule</button>
+                <button @click="activeTab = 'grading'" :class="activeTab === 'grading' ? 'text-usaRed underline underline-offset-8' : 'hover:text-usaSilver'">Assessment</button>
+                <button @click="activeTab = 'k12'" :class="activeTab === 'k12' ? 'text-usaRed underline underline-offset-8' : 'hover:text-usaSilver'">P-12 Framework</button>
+                <button @click="activeTab = 'miro'" :class="activeTab === 'miro' ? 'text-usaRed underline underline-offset-8' : 'hover:text-usaSilver'">Miro Hub</button>
             </div>
         </div>
     </nav>
 
     <header class="usa-gradient text-white py-20 px-6 relative overflow-hidden">
-        <div class="max-w-5xl mx-auto relative z-10 text-center md:text-left">
-            <h1 class="text-4xl md:text-6xl font-header font-bold mb-6 leading-tight">AI 시대의 정보 리터러시를 위한 <br><span class="text-usaRed">놀이 중심 학습</span></h1>
-            <p class="text-xl md:text-2xl font-light opacity-90 max-w-3xl border-l-4 border-usaRed pl-6 mx-auto md:mx-0">
-                Playful Learning for Information Literacy in the AI Era (EDM 5XX)
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="bg-usaRed px-3 py-1 inline-block text-[10px] font-bold rounded mb-4 tracking-widest uppercase">EDM 5XX | 3 Credit Hours | Online</div>
+            <h1 class="text-4xl md:text-6xl font-header font-bold mb-6 leading-tight">Playful Learning for <br><span class="text-usaSilver">Information Literacy</span> in the AI Era</h1>
+            <p class="text-xl md:text-2xl font-light opacity-90 max-w-3xl border-l-4 border-usaRed pl-6">
+                Design-Based Research · Playful Pedagogy · AI Literacy · Critical Inquiry
             </p>
         </div>
+        <div class="absolute right-[-5%] bottom-[-10%] opacity-10 text-[20rem] font-bold select-none pointer-events-none">USA</div>
     </header>
 
     <main class="max-w-7xl mx-auto px-6 py-12">
 
-        <div x-show="activeTab === 'overview'" x-transition x-cloak class="space-y-12">
-            <section class="grid md:grid-cols-3 gap-8">
-                <div class="md:col-span-2">
-                    <h2 class="text-3xl font-header font-bold text-usaBlue mb-6">강의 소개</h2>
-                    <p class="text-lg leading-relaxed text-gray-700 mb-6">
-                        이 과정은 AI가 정보를 생성하고 큐레이션하는 시대에 <strong>'정보 리터러시'</strong>의 의미를 재정의합니다. 
-                        단순한 도구 사용법을 넘어, 놀이 기반 교수법(Playful Pedagogy)과 디자인 기반 연구(DBR)를 결합하여 실제 교육 현장에 적용 가능한 증거 기반 솔루션을 설계합니다.
-                    </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-white p-4 rounded border-l-4 border-usaBlue shadow-sm">
-                            <h4 class="font-bold text-usaBlue">Pillar 1: AI 시대의 IL</h4>
-                            <p class="text-sm">AI에 의해 매개되는 정보 생태계의 변화와 ACRL, AASL 프레임워크 분석</p>
+        <div x-show="activeTab === 'home'" x-transition x-cloak class="space-y-12">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="md:col-span-2 space-y-8">
+                    <section>
+                        <h2 class="text-3xl font-header font-bold text-usaBlue mb-4">Course Description</h2>
+                        <p class="text-lg leading-relaxed text-gray-700">
+                            This course explores what information literacy means in an era dominated by AI[cite: 43]. Students engage in a **Design-Based Research (DBR)** process—understanding learners, exploring AI impact, and testing playful learning experiences[cite: 45]. AI is treated as both subject matter and a design tool[cite: 46].
+                        </p>
+                    </section>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-usaBlue">
+                            <h4 class="font-bold text-usaBlue text-sm mb-2">Pillar 1: IL in AI Era</h4>
+                            <p class="text-xs text-gray-500">Traditional framework evolution & ethical dimensions[cite: 61, 62].</p>
                         </div>
-                        <div class="bg-white p-4 rounded border-l-4 border-usaRed shadow-sm">
-                            <h4 class="font-bold text-usaRed">Pillar 2: 놀이 중심 교수법</h4>
-                            <p class="text-sm">GBL, Maker 교육, 스토리텔링을 통한 비판적 사고 함양</p>
+                        <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-usaRed">
+                            <h4 class="font-bold text-usaRed text-sm mb-2">Pillar 2: Playful Pedagogy</h4>
+                            <p class="text-xs text-gray-500">Play theories as a methodology for engagement[cite: 63, 64].</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-usaSilver">
+                            <h4 class="font-bold text-gray-700 text-sm mb-2">Pillar 3: DBR Process</h4>
+                            <p class="text-xs text-gray-500">Evidence-based cycles: Design, test, and iterate[cite: 65, 66].</p>
                         </div>
                     </div>
                 </div>
-                <div class="bg-usaBlue text-white p-8 rounded-2xl">
-                    <h3 class="font-bold text-xl mb-4 border-b border-white/20 pb-2">Course Info</h3>
-                    <ul class="space-y-3 text-sm">
-                        <li><strong>학점:</strong> 3학점 (온라인)</li>
-                        <li><strong>자격:</strong> Alabama P-12 Library Media Specialist 인증 과정 연계</li>
-                        <li><strong>필수 도구:</strong> Miro, Canvas, AI Tools (ChatGPT 등)</li>
-                    </ul>
+                <div class="bg-usaBlue text-white p-8 rounded-2xl shadow-xl space-y-6">
+                    <div>
+                        <h3 class="font-header font-bold text-usaSilver uppercase text-xs tracking-widest mb-4">Instructor Info</h3>
+                        <p class="font-bold text-lg">[Instructor Name, Ph.D.]</p>
+                        <p class="text-sm opacity-80">[email]@southalabama.edu</p>
+                    </div>
+                    <div>
+                        <h3 class="font-header font-bold text-usaSilver uppercase text-xs tracking-widest mb-2">Response Time</h3>
+                        <p class="text-sm opacity-90">Emails: 24-48 hrs [cite: 14]</p>
+                        <p class="text-sm opacity-90">Miro Feedback: 72 hrs [cite: 14]</p>
+                    </div>
+                    <div class="pt-4 border-t border-white/20">
+                        <p class="text-xs italic opacity-70 leading-relaxed">Prepares candidates for certification as P-12 Library Media Specialists in Alabama[cite: 16, 17].</p>
+                    </div>
                 </div>
-            </section>
+            </div>
         </div>
 
         <div x-show="activeTab === 'schedule'" x-transition x-cloak>
-            <h2 class="text-3xl font-header font-bold text-usaBlue mb-8">5단계 디자인 기반 연구(DBR) 여정</h2>
+            <h2 class="text-3xl font-header font-bold text-usaBlue mb-8">Course Schedule: The 5-Phase DBR Arc</h2>
             
-            <div class="flex flex-wrap gap-2 mb-8">
-                <template x-for="p in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]">
-                    <button @click="week = p" 
-                            :class="week === p ? 'bg-usaRed text-white' : 'bg-white text-gray-600'" 
-                            class="w-10 h-10 rounded-full font-bold shadow transition border" 
-                            x-text="p"></button>
+            <div class="flex flex-wrap gap-2 mb-8 justify-center">
+                <template x-for="w in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]">
+                    <button @click="week = w" 
+                            :class="week === w ? 'bg-usaRed text-white scale-110' : 'bg-white text-gray-600 hover:bg-gray-200'" 
+                            class="w-10 h-10 rounded-full font-bold shadow-md transition-all border border-gray-200" 
+                            x-text="w"></button>
                 </template>
             </div>
 
-            <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-200">
-                <div x-show="week >= 1 && week <= 4">
-                    <span class="text-blue-600 font-bold uppercase tracking-widest text-xs">PHASE 1: UNDERSTAND (이해 및 탐색)</span>
-                    <h3 class="text-2xl font-bold mt-2 mb-4" x-text="week == 1 ? '1주차: AI 시대의 정보 리터러시 개론' : (week == 2 ? '2주차: 머신러닝과 도구의 이해' : '기초 이론 및 학습자 분석')"></h3>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div>
-                            <h4 class="font-bold text-gray-500 uppercase text-xs mb-2">학습 주제</h4>
-                            <ul class="list-disc ml-5 space-y-2 text-gray-700">
-                                <li x-show="week==1">AI가 도서관과 교육에 미치는 영향</li>
-                                <li x-show="week==1">ACRL/AASL 프레임워크의 변화</li>
-                                <li x-show="week==2">LLM(거대언어모델)의 작동 원리 및 교육적 한계</li>
-                                <li>디자인 기반 연구(DBR)의 개념 정립</li>
-                            </ul>
-                        </div>
-                        <div class="bg-gray-50 p-6 rounded-xl">
-                            <h4 class="font-bold text-usaBlue uppercase text-xs mb-2">활동 및 과제</h4>
-                            <p class="text-sm italic mb-2">"Miro를 활용한 개념 매핑 및 학습자 페르소나 설계"</p>
-                            <p class="text-xs text-usaRed font-bold">과제: Reflection Journal #1</p>
-                        </div>
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-200 min-h-[400px]">
+                <div class="p-8 border-b bg-gray-50 flex flex-col md:flex-row justify-between items-center">
+                    <div>
+                        <span class="text-usaRed font-bold uppercase tracking-widest text-xs" 
+                              x-text="week <= 4 ? 'Phase 1: Understand' : (week <= 8 ? 'Phase 2: Discover' : (week <= 11 ? 'Phase 3: Design' : (week <= 13 ? 'Phase 4: Play & Test' : 'Phase 5: Reflect')))"></span>
+                        <h3 class="text-3xl font-bold text-usaBlue mt-1">Week <span x-text="week"></span> Details</h3>
+                    </div>
+                    <div class="mt-4 md:mt-0 bg-usaBlue text-white px-4 py-2 rounded-lg text-xs font-bold uppercase">
+                        Active Module
                     </div>
                 </div>
 
-                <div x-show="week >= 5 && week <= 8">
-                    <span class="text-green-600 font-bold uppercase tracking-widest text-xs">PHASE 2: DISCOVER (비판적 발견)</span>
-                    <h3 class="text-2xl font-bold mt-2 mb-4" x-text="week == 5 ? '5주차: AI 윤리와 편향성' : '심층 분석 및 문제 정의'"></h3>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div>
-                            <h4 class="font-bold text-gray-500 uppercase text-xs mb-2">학습 주제</h4>
-                            <ul class="list-disc ml-5 space-y-2 text-gray-700">
-                                <li>AI 편향성, 프라이버시 및 알고리즘 투명성</li>
-                                <li>딥페이크와 할루시네이션(환각 현상) 판별</li>
-                                <li>교육 현장의 AI 문제점 진단</li>
-                            </ul>
-                        </div>
-                        <div class="bg-green-50 p-6 rounded-xl">
-                            <h4 class="font-bold text-green-700 uppercase text-xs mb-2">활동 및 과제</h4>
-                            <p class="text-sm italic">윤리적 딜레마 카드 게임 참여</p>
-                            <p class="text-xs text-usaRed font-bold mt-2">과제: Ethical Analysis Brief 제출</p>
+                <div class="p-8 grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h4 class="font-header font-bold text-gray-400 uppercase text-xs mb-4 tracking-widest">Core Topics</h4>
+                        <div class="text-lg text-gray-800 space-y-4">
+                            <p x-show="week == 1"><strong>Welcome:</strong> Information Literacy meets AI. Reshaping discovery and library roles[cite: 97].</p>
+                            <p x-show="week == 2"><strong>AI Demystified:</strong> ML, NLP, and LLMs. Prompting across ChatGPT, Claude, and Gemini[cite: 97].</p>
+                            <p x-show="week == 5"><strong>Ethics:</strong> Bias, privacy, copyright, and misinformation in the age of GenAI[cite: 97].</p>
+                            <p x-show="week == 10"><strong>Design Principles:</strong> Balancing fun and critical thinking for AI outcomes[cite: 97].</p>
+                            <p x-show="week >= 14"><strong>Showcase:</strong> Presenting final projects and professional growth plans[cite: 97].</p>
+                            <p x-show="week != 1 && week != 2 && week != 5 && week != 10 && week < 14" class="italic text-gray-500">Consult the full DBR arc for this week's modular learning objectives[cite: 97].</p>
                         </div>
                     </div>
-                </div>
-
-                <div x-show="week >= 9 && week <= 11">
-                    <span class="text-orange-600 font-bold uppercase tracking-widest text-xs">PHASE 3: DESIGN (프로토타이핑)</span>
-                    <h3 class="text-2xl font-bold mt-2 mb-4">학습 경험 설계 및 중간 심포지엄</h3>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div>
-                            <h4 class="font-bold text-gray-500 uppercase text-xs mb-2">학습 주제</h4>
-                            <ul class="list-disc ml-5 space-y-2 text-gray-700">
-                                <li>Low-fidelity 프로토타이핑 기법</li>
-                                <li>놀이 중심 학습 활동 설계 (GBL, Maker 등)</li>
-                            </ul>
-                        </div>
-                        <div class="bg-orange-50 p-6 rounded-xl">
-                            <h4 class="font-bold text-orange-700 uppercase text-xs mb-2">활동 및 과제</h4>
-                            <p class="text-sm italic">중간고사 대체: Position Paper</p>
-                            <p class="text-xs text-usaRed font-bold mt-2">과제: Design Brief & Storyboard</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div x-show="week >= 12">
-                    <span class="text-usaRed font-bold uppercase tracking-widest text-xs">PHASE 4 & 5: TEST & REFLECT (최종 구현)</span>
-                    <h3 class="text-2xl font-bold mt-2 mb-4">플레이테스트 및 최종 쇼케이스</h3>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div>
-                            <h4 class="font-bold text-gray-500 uppercase text-xs mb-2">학습 주제</h4>
-                            <ul class="list-disc ml-5 space-y-2 text-gray-700">
-                                <li>사용성 테스트 및 피드백 반영</li>
-                                <li>최종 캡스톤 프로젝트 발표</li>
-                            </ul>
-                        </div>
-                        <div class="bg-red-50 p-6 rounded-xl">
-                            <h4 class="font-bold text-usaRed uppercase text-xs mb-2">활동 및 과제</h4>
-                            <p class="text-sm italic">Miro 쇼케이스 갤러리 전시</p>
-                            <p class="text-xs text-usaRed font-bold mt-2">최종 과제: Capstone Project & Portfolio</p>
+                    <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100">
+                        <h4 class="font-header font-bold text-usaBlue uppercase text-xs mb-4 tracking-widest">Miro Studio & Deliverable</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <span class="text-usaRed mr-3">●</span>
+                                <span class="text-sm font-semibold" x-show="week == 1">Ice-breaker: Map your AI life[cite: 97].</span>
+                                <span class="text-sm font-semibold" x-show="week == 5">Workshop: Ethical Dilemma card game[cite: 97].</span>
+                                <span class="text-sm font-semibold" x-show="week >= 14">Retrospective: Professional roadmap[cite: 97].</span>
+                            </div>
+                            <div class="mt-6 p-4 bg-white rounded-lg border-l-4 border-usaRed shadow-sm">
+                                <p class="text-[10px] text-gray-400 uppercase font-bold mb-1">Due This Week</p>
+                                <p class="text-sm font-bold text-usaBlue" x-show="week == 1">Reflection Journal #1 [cite: 150]</p>
+                                <p class="text-sm font-bold text-usaBlue" x-show="week == 5">Ethical Analysis Brief [cite: 150]</p>
+                                <p class="text-sm font-bold text-usaBlue" x-show="week == 9">Midterm Position Paper [cite: 150]</p>
+                                <p class="text-sm font-bold text-usaBlue" x-show="week >= 14">Final Capstone Project [cite: 150]</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div x-show="activeTab === 'assignments'" x-transition x-cloak class="grid md:grid-cols-2 gap-8">
-            <div class="bg-white p-8 rounded-2xl shadow-lg border-t-8 border-usaRed">
-                <h2 class="text-2xl font-bold text-usaBlue mb-6">평가 항목 (Grading)</h2>
-                <div class="space-y-4">
-                    <div class="flex justify-between items-center border-b pb-2">
-                        <span>Final Capstone Project</span>
-                        <span class="font-bold text-usaRed">15%</span>
-                    </div>
-                    <div class="flex justify-between items-center border-b pb-2">
-                        <span>Midterm Position Paper</span>
-                        <span class="font-bold text-usaRed">15%</span>
-                    </div>
-                    <div class="flex justify-between items-center border-b pb-2">
-                        <span>Design Brief & Prototypes</span>
-                        <span class="font-bold text-usaRed">10%</span>
-                    </div>
-                    <div class="flex justify-between items-center border-b pb-2">
-                        <span>Ethical Analysis Brief</span>
-                        <span class="font-bold text-usaRed">10%</span>
-                    </div>
-                    <div class="flex justify-between items-center border-b pb-2">
-                        <span>Weekly Journals & Miro Activities</span>
-                        <span class="font-bold text-usaRed">50%</span>
-                    </div>
+        <div x-show="activeTab === 'grading'" x-transition x-cloak class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white p-8 rounded-2xl shadow-xl border-t-8 border-usaRed">
+                <h2 class="text-2xl font-header font-bold text-usaBlue mb-8">Assignment Weights</h2>
+                <div class="space-y-4 text-sm">
+                    <div class="flex justify-between items-center border-b pb-2"><span>Final Capstone Project</span><span class="font-bold text-usaRed">15%</span></div>
+                    <div class="flex justify-between items-center border-b pb-2"><span>Midterm Position Paper</span><span class="font-bold text-usaRed">15%</span></div>
+                    <div class="flex justify-between items-center border-b pb-2"><span>Ethical Analysis Brief</span><span class="font-bold text-usaRed">10%</span></div>
+                    <div class="flex justify-between items-center border-b pb-2"><span>Reflective Portfolio + Growth Plan</span><span class="font-bold text-usaRed">10%</span></div>
+                    <div class="flex justify-between items-center border-b pb-2"><span>Design Brief + Prototypes (v1 & v2)</span><span class="font-bold text-usaRed">10%</span></div>
+                    <div class="flex justify-between items-center border-b pb-2"><span>Reflection Journals (2x)</span><span class="font-bold text-usaRed">10%</span></div>
+                    <p class="text-[10px] text-gray-400 mt-4 italic">*See full syllabus for minor assignment breakdowns totaling remaining 30%[cite: 150].</p>
                 </div>
             </div>
-            <div class="bg-usaBlue text-white p-8 rounded-2xl">
-                <h2 class="text-2xl font-bold mb-4">AI 활용 원칙</h2>
-                <p class="text-sm leading-relaxed mb-4 opacity-90">
-                    본 강의는 AI 사용을 적극 권장하지만, <strong>'투명성'</strong>이 필수입니다.
-                </p>
-                <ul class="list-disc ml-5 text-xs space-y-2 opacity-80">
-                    <li>AI 도구명과 활용 목적을 명시할 것</li>
-                    <li>AI 출력을 인간의 비판적 사고로 수정한 과정 기록</li>
-                    <li>출처 표기 없는 AI 생성물 제출은 부정행위로 간주</li>
-                </ul>
+            <div class="space-y-8">
+                <section class="bg-usaBlue text-white p-8 rounded-2xl shadow-xl">
+                    <h3 class="text-xl font-header font-bold mb-4 text-usaSilver">AI Tool Use Policy</h3>
+                    <p class="text-sm opacity-90 leading-relaxed mb-4">
+                        Exploration is encouraged, but **transparency is mandatory**. Disclose tool, purpose, and human judgment applied[cite: 174].
+                    </p>
+                    <div class="bg-white/10 p-4 rounded text-xs border border-white/20 italic">
+                        "AI-generated content submitted without disclosure violates academic integrity"[cite: 175].
+                    </div>
+                </section>
+                <section class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                    <h3 class="text-xl font-header font-bold text-usaBlue mb-4">Participation</h3>
+                    <p class="text-sm text-gray-600 mb-2">Minimum of **3 logins per week** expected[cite: 178].</p>
+                    <p class="text-sm text-gray-600">Late work: **10% penalty per day** (up to 3 days)[cite: 180].</p>
+                </section>
             </div>
         </div>
 
-        <div x-show="activeTab === 'miro'" x-transition x-cloak class="bg-white p-8 rounded-3xl shadow-xl border">
-            <h2 class="text-3xl font-bold text-usaBlue mb-6 italic">Miro Workspace Guide</h2>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div>
-                    <p class="mb-6 text-gray-700">Miro는 본 과정의 <strong>'디지털 스튜디오'</strong>이자 협업 공간입니다. 모든 실습과 피드백은 Miro 보드에서 이루어집니다.</p>
-                    <div class="space-y-4">
-                        <div class="p-4 bg-gray-50 rounded-lg">
-                            <h4 class="font-bold text-usaBlue">Course Hub</h4>
-                            <p class="text-xs">전체 공지사항 및 주차별 모듈 링크</p>
-                        </div>
-                        <div class="p-4 bg-gray-50 rounded-lg">
-                            <h4 class="font-bold text-usaBlue">Individual Portfolio</h4>
-                            <p class="text-xs">DBR 과정을 기록하는 개인별 포트폴리오 보드</p>
-                        </div>
+        <div x-show="activeTab === 'k12'" x-transition x-cloak class="space-y-8">
+            <h2 class="text-3xl font-header font-bold text-usaBlue text-center mb-8">Developmental AI Literacy Stages</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-md border-b-8 border-blue-400 flex flex-col">
+                    <h3 class="font-header font-bold text-blue-600 text-lg mb-4">Elementary (K-5)</h3>
+                    <p class="text-xs text-gray-500 mb-4 italic">"Awareness & Exploration" [cite: 105]</p>
+                    <div class="flex-grow space-y-3">
+                        <div class="bg-blue-50 p-3 rounded text-[11px]"><strong>Platforms:</strong> YouTube Kids, Scratch, Voice Search[cite: 110, 111].</div>
+                        <div class="bg-gray-50 p-3 rounded text-[11px]"><strong>Approach:</strong> "Robot or Human?" guessing games[cite: 112].</div>
                     </div>
                 </div>
-                <div class="bg-gray-200 rounded-xl flex items-center justify-center p-8 border-2 border-dashed border-gray-400">
-                    <p class="text-center text-gray-500 font-bold">Miro Board <br> Embedded Area <br> (학습자 전용)</p>
+                <div class="bg-white p-6 rounded-2xl shadow-md border-b-8 border-green-500 flex flex-col">
+                    <h3 class="font-header font-bold text-green-700 text-lg mb-4">Middle School (6-8)</h3>
+                    <p class="text-xs text-gray-500 mb-4 italic">"Understanding & Evaluation" [cite: 116]</p>
+                    <div class="flex-grow space-y-3">
+                        <div class="bg-green-50 p-3 rounded text-[11px]"><strong>Platforms:</strong> TikTok feeds, Canva, ChatGPT[cite: 121, 122].</div>
+                        <div class="bg-gray-50 p-3 rounded text-[11px]"><strong>Approach:</strong> "Break the Filter Bubble" Escape Room[cite: 125].</div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-md border-b-8 border-usaRed flex flex-col">
+                    <h3 class="font-header font-bold text-usaRed text-lg mb-4">High School (9-12)</h3>
+                    <p class="text-xs text-gray-500 mb-4 italic">"Application & Advocacy" [cite: 128]</p>
+                    <div class="flex-grow space-y-3">
+                        <div class="bg-red-50 p-3 rounded text-[11px]"><strong>Platforms:</strong> Perplexity, NotebookLM, Claude[cite: 134, 135].</div>
+                        <div class="bg-gray-50 p-3 rounded text-[11px]"><strong>Approach:</strong> AI Courtroom Simulation (Tool on Trial)[cite: 137].</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div x-show="activeTab === 'miro'" x-transition x-cloak class="bg-white p-12 rounded-3xl shadow-2xl border text-center">
+            <div class="max-w-2xl mx-auto space-y-6">
+                <h2 class="text-4xl font-header font-bold text-usaBlue">The Digital Studio</h2>
+                <p class="text-gray-600">**Miro** is our learning commons. All design workshops, peer reviews, and portfolios live here[cite: 189].</p>
+                <div class="grid grid-cols-2 gap-4 text-[10px] font-bold uppercase tracking-widest text-usaBlue">
+                    <div class="p-4 bg-usaBlue/5 rounded border">Course Hub</div>
+                    <div class="p-4 bg-usaBlue/5 rounded border">Research Commons</div>
+                    <div class="p-4 bg-usaBlue/5 rounded border">Individual Portfolios</div>
+                    <div class="p-4 bg-usaBlue/5 rounded border">Showcase Gallery</div>
+                </div>
+                <div class="mt-8 py-12 bg-gray-100 rounded-3xl border-2 border-dashed border-gray-300">
+                    <p class="text-gray-400 font-bold">Miro Board Embed Area <br> (Student Login Required)</p>
                 </div>
             </div>
         </div>
 
     </main>
 
-    <footer class="bg-usaBlue text-white py-12 px-6 mt-12 border-t-8 border-usaRed text-center">
-        <p class="text-sm opacity-60 italic mb-2">© 2026 University of South Alabama | College of Education</p>
-        <p class="text-xs opacity-40 uppercase tracking-widest">Syllabus is a living document, evolving with AI.</p>
+    <footer class="bg-usaBlue text-white py-12 px-8 mt-12 border-t-8 border-usaRed">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start space-y-8 md:space-y-0 text-xs opacity-70">
+            <div class="max-w-sm">
+                <p class="mb-2"><strong>Academic Conduct:</strong> This syllabus follows the Alabama Administrative Code (r. 290-3-3-.48) and ALA/AASL standards[cite: 19, 36].</p>
+                <p>© 2026 University of South Alabama</p>
+            </div>
+            <div class="space-y-1">
+                <p>Disability Services: (251) 460-7212 [cite: 198]</p>
+                <p>IT Help Desk: (251) 460-6161 [cite: 202]</p>
+                <p>Last Update: Feb 2026 [cite: 205]</p>
+            </div>
+        </div>
     </footer>
 
 </body>
