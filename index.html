@@ -3,139 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDM 5XX: Playful Learning for IL in the AI Era</title>
+    <title>EDM 5XX: Playful Learning for IL in the AI Era | USA</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        usaBlue: '#00205B',
+                        usaRed: '#BF0D3E',
+                        usaSilver: '#A2AAAD'
+                    },
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        header: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .gradient-bg { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
+        .usa-gradient { background: linear-gradient(135deg, #00205B 0%, #003a88 100%); }
+        .tab-active { border-bottom: 4px solid #BF0D3E; color: #00205B; font-weight: bold; }
+        [x-cloak] { display: none !important; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900 leading-relaxed">
+<body class="bg-gray-100 text-gray-800 font-sans" x-data="{ activeTab: 'overview' }">
 
-    <header class="gradient-bg text-white py-16 px-6 text-center shadow-lg">
-        <div class="max-w-4xl mx-auto">
-            <p class="uppercase tracking-widest text-sm font-semibold opacity-80 mb-2">University of South Alabama</p>
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">EDM 5XX: Playful Learning for Information Literacy in the AI Era</h1>
-            <p class="text-xl opacity-90 max-w-2xl mx-auto italic">
-                [cite_start]"Designing evidence-based instructional experiences for a new reality." [cite: 44]
+    <nav class="bg-usaBlue text-white py-4 px-8 sticky top-0 z-50 shadow-xl border-b-4 border-usaRed">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="text-left mb-4 md:mb-0">
+                <h2 class="font-header font-bold tracking-tight text-xl">UNIVERSITY OF SOUTH ALABAMA</h2>
+                <p class="text-xs uppercase tracking-widest opacity-80">College of Education & Professional Studies</p>
+            </div>
+            <div class="flex space-x-4 text-sm font-semibold">
+                <button @click="activeTab = 'overview'" :class="activeTab === 'overview' ? 'text-usaRed' : 'hover:text-usaSilver'">OVERVIEW</button>
+                <button @click="activeTab = 'schedule'" :class="activeTab === 'schedule' ? 'text-usaRed' : 'hover:text-usaSilver'">SCHEDULE</button>
+                <button @click="activeTab = 'grading'" :class="activeTab === 'grading' ? 'text-usaRed' : 'hover:text-usaSilver'">GRADING</button>
+                <button @click="activeTab = 'frameworks'" :class="activeTab === 'frameworks' ? 'text-usaRed' : 'hover:text-usaSilver'">K-12 STAGES</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="usa-gradient text-white py-16 px-6 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="bg-usaRed text-white px-3 py-1 inline-block text-xs font-bold rounded mb-4">EDM 5XX | 3 CREDIT HOURS | ONLINE</div>
+            <h1 class="text-4xl md:text-6xl font-header font-bold mb-6 leading-tight">Playful Learning for <br><span class="text-usaSilver">Information Literacy</span> in the AI Era</h1>
+            <p class="text-xl md:text-2xl font-light opacity-90 max-w-3xl border-l-4 border-usaRed pl-6">
+                Design-Based Research · Playful Pedagogy · AI Literacy · Critical Inquiry
             </p>
         </div>
+        <div class="absolute right-[-5%] bottom-[-10%] opacity-10 text-[20rem] font-bold select-none pointer-events-none">USA</div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-6 py-12">
-        
-        <section class="mb-16">
-            [cite_start]<h2 class="text-3xl font-bold text-blue-900 mb-8 border-b-2 border-blue-200 pb-2">Three Integrated Pillars [cite: 59]</h2>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-blue-500">
-                    <h3 class="font-bold text-lg mb-2 text-blue-700">Pillar 1: IL in the AI Era</h3>
-                    [cite_start]<p class="text-sm text-gray-600">How traditional frameworks evolve when AI generates, curates, and mediates information. [cite: 61, 62]</p>
+    <main class="max-w-7xl mx-auto px-6 py-12">
+
+        <div x-show="activeTab === 'overview'" x-transition x-cloak>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="md:col-span-1 space-y-6">
+                    <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-usaBlue">
+                        <h3 class="font-header font-bold text-usaBlue border-b mb-4 pb-2 italic">Instructor Information</h3>
+                        <p class="font-bold">[Instructor Name, Ph.D.]</p>
+                        <p class="text-sm text-gray-600 mb-4">[email]@southalabama.edu</p>
+                        <div class="text-xs space-y-2">
+                            <p><strong>Office Hours:</strong> By appointment via Zoom</p>
+                            <p><strong>Response Time:</strong> 24-48 hrs (Email) / 72 hrs (Miro)</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-usaBlue text-white p-6 rounded-xl shadow-lg">
+                        <h3 class="font-header font-bold mb-4 text-usaRed">Certification Focus</h3>
+                        <p class="text-sm leading-relaxed opacity-90">
+                            Prepares candidates for P-12 Library Media Specialist certification in Alabama (Ala. Admin. Code r. 290-3-3-.48).
+                        </p>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-green-500">
-                    <h3 class="font-bold text-lg mb-2 text-green-700">Pillar 2: Playful Learning</h3>
-                    [cite_start]<p class="text-sm text-gray-600">Using theories of play and design principles to make instruction more engaging and effective. [cite: 63, 64]</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-orange-500">
-                    <h3 class="font-bold text-lg mb-2 text-orange-700">Pillar 3: Design-Based Research</h3>
-                    [cite_start]<p class="text-sm text-gray-600">Creating evidence-based instructional interventions through the DBR cycle. [cite: 65, 66]</p>
+
+                <div class="md:col-span-2 space-y-12">
+                    <section>
+                        <h2 class="text-3xl font-header font-bold text-usaBlue mb-4">Course Description</h2>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                            This course sits at the intersection of three urgent questions: What does information literacy mean in an era dominated by AI? How can playful learning help us teach it? And how do we design effective, evidence-based instructional experiences for this new reality?
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div class="bg-gray-200 p-4 rounded-lg text-center">
+                                <span class="block font-bold text-usaBlue text-xl">Pillar 1</span>
+                                <span class="text-xs uppercase font-bold">IL in AI Era</span>
+                            </div>
+                            <div class="bg-gray-200 p-4 rounded-lg text-center">
+                                <span class="block font-bold text-usaBlue text-xl">Pillar 2</span>
+                                <span class="text-xs uppercase font-bold">Playful Pedagogy</span>
+                            </div>
+                            <div class="bg-gray-200 p-4 rounded-lg text-center">
+                                <span class="block font-bold text-usaBlue text-xl">Pillar 3</span>
+                                <span class="text-xs uppercase font-bold">Design-Based Research</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                        <h3 class="text-2xl font-header font-bold text-usaRed mb-6">Learning Objectives</h3>
+                        <ul class="space-y-4">
+                            <template x-for="obj in [
+                                'Analyze AI transformation of info ecosystems.',
+                                'Critically evaluate AI & IL frameworks (ACRL, AASL, OECD).',
+                                'Evaluate AI tools for accuracy, bias, and reliability.',
+                                'Apply playful learning theories (GBL, Maker, Narrative).',
+                                'Conduct iterative Design-Based Research (DBR) cycles.'
+                            ]">
+                                <li class="flex items-start">
+                                    <span class="text-usaRed mr-3 font-bold">→</span>
+                                    <span class="text-gray-700" x-text="obj"></span>
+                                </li>
+                            </template>
+                        </ul>
+                    </section>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section class="mb-16" x-data="{ selected: 1 }">
-            [cite_start]<h2 class="text-3xl font-bold text-blue-900 mb-8 border-b-2 border-blue-200 pb-2">Course Arc: 5-Phase DBR Journey [cite: 67, 68]</h2>
+        <div x-show="activeTab === 'schedule'" x-transition x-cloak x-data="{ week: 1 }">
+            <h2 class="text-3xl font-header font-bold text-usaBlue mb-8">The 5-Phase DBR Journey</h2>
             
-            <div class="space-y-4">
-                <div class="border rounded-lg overflow-hidden bg-white shadow-sm">
-                    <button @click="selected !== 1 ? selected = 1 : selected = null" class="w-full flex justify-between items-center p-4 bg-blue-50 hover:bg-blue-100 transition">
-                        [cite_start]<span class="font-bold text-blue-900">PHASE 1: UNDERSTAND (Weeks 1-4) [cite: 69]</span>
-                        <svg class="w-5 h-5 transition-transform" :class="selected === 1 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div x-show="selected === 1" class="p-4 text-sm border-t space-y-2 text-gray-700">
-                        [cite_start]<p><strong>Focus:</strong> AI Demystification, Learner Analysis, and Play Theory. [cite: 70]</p>
-                        [cite_start]<p><strong>Activities:</strong> Concept mapping, Empathy mapping, Play taxonomy. [cite: 97]</p>
-                        [cite_start]<p class="text-blue-600 font-semibold italic">Deliverables: Reflection Journal #1, AI Tool Log, Learner Personas. [cite: 150]</p>
+            <div class="flex flex-wrap gap-2 mb-8">
+                <button @click="week = 1" :class="week <= 4 ? 'bg-usaBlue text-white' : 'bg-gray-200 text-gray-600'" class="px-4 py-2 rounded-full text-xs font-bold transition">PHASE 1: UNDERSTAND</button>
+                <button @click="week = 5" :class="week >= 5 && week <= 8 ? 'bg-green-700 text-white' : 'bg-gray-200 text-gray-600'" class="px-4 py-2 rounded-full text-xs font-bold transition">PHASE 2: DISCOVER</button>
+                <button @click="week = 9" :class="week >= 9 && week <= 11 ? 'bg-orange-600 text-white' : 'bg-gray-200 text-gray-600'" class="px-4 py-2 rounded-full text-xs font-bold transition">PHASE 3: DESIGN</button>
+                <button @click="week = 12" :class="week >= 12 && week <= 13 ? 'bg-usaRed text-white' : 'bg-gray-200 text-gray-600'" class="px-4 py-2 rounded-full text-xs font-bold transition">PHASE 4: PLAY & TEST</button>
+                <button @click="week = 14" :class="week >= 14 ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-600'" class="px-4 py-2 rounded-full text-xs font-bold transition">PHASE 5: REFLECT</button>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-200">
+                <div class="p-8 border-b bg-gray-50 flex justify-between items-center">
+                    <div>
+                        <span class="text-usaRed font-bold uppercase tracking-widest text-sm">Active Exploration</span>
+                        <h3 class="text-2xl font-bold text-usaBlue">Week <span x-text="week"></span> Schedule</h3>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button @click="week = Math.max(1, week - 1)" class="p-2 hover:bg-gray-200 rounded">← Previous</button>
+                        <button @click="week = Math.min(15, week + 1)" class="p-2 hover:bg-gray-200 rounded">Next →</button>
                     </div>
                 </div>
-
-                <div class="border rounded-lg overflow-hidden bg-white shadow-sm">
-                    <button @click="selected !== 2 ? selected = 2 : selected = null" class="w-full flex justify-between items-center p-4 bg-green-50 hover:bg-green-100 transition">
-                        [cite_start]<span class="font-bold text-green-900">PHASE 2: DISCOVER (Weeks 5-8) [cite: 71]</span>
-                        <svg class="w-5 h-5 transition-transform" :class="selected === 2 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div x-show="selected === 2" class="p-4 text-sm border-t space-y-2 text-gray-700">
-                        [cite_start]<p><strong>Focus:</strong> AI Ethics, Critical Evaluation, and Problem Framing. [cite: 71]</p>
-                        [cite_start]<p><strong>Activities:</strong> Ethical dilemma games, Fact-checking challenge, Case study jigsaw. [cite: 97]</p>
-                        [cite_start]<p class="text-green-600 font-semibold italic">Deliverables: Ethical Analysis Brief, Fact-Checking Exercise. [cite: 150]</p>
+                
+                <div class="p-8 grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h4 class="font-bold text-gray-400 uppercase text-xs mb-2">Topics & Discussion</h4>
+                        <div class="text-lg text-gray-800 font-medium" x-show="week == 1">Welcome: IL meets AI - Reshaping the library's role.</div>
+                        <div class="text-lg text-gray-800 font-medium" x-show="week == 2">AI Demystified: ML, LLMs, and library-specific tools.</div>
+                        <div class="text-lg text-gray-800 font-medium" x-show="week == 5">Ethics: Bias, Privacy, Copyright, and Deepfakes.</div>
+                        <div class="text-lg text-gray-800 font-medium" x-show="week == 14">Showcase: Virtual Gallery of Final Projects.</div>
+                        <p class="mt-4 text-gray-600 italic text-sm">All readings provided via University LMS.</p>
                     </div>
-                </div>
-
-                <div class="border rounded-lg overflow-hidden bg-white shadow-sm">
-                    <button @click="selected !== 3 ? selected = 3 : selected = null" class="w-full flex justify-between items-center p-4 bg-orange-50 hover:bg-orange-100 transition">
-                        [cite_start]<span class="font-bold text-orange-900">PHASE 3: DESIGN (Weeks 9-11) [cite: 72]</span>
-                        <svg class="w-5 h-5 transition-transform" :class="selected === 3 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div x-show="selected === 3" class="p-4 text-sm border-t space-y-2 text-gray-700">
-                        [cite_start]<p><strong>Focus:</strong> Midterm Symposium and Low-Fidelity Prototyping. [cite: 72]</p>
-                        [cite_start]<p><strong>Activities:</strong> Storyboarding, Design principles card sort, Rapid prototyping. [cite: 97]</p>
-                        [cite_start]<p class="text-orange-600 font-semibold italic">Deliverables: Midterm Position Paper, Design Brief, Low-fi Prototype. [cite: 150]</p>
-                    </div>
-                </div>
-
-                <div class="border rounded-lg overflow-hidden bg-white shadow-sm">
-                    <button @click="selected !== 4 ? selected = 4 : selected = null" class="w-full flex justify-between items-center p-4 bg-purple-50 hover:bg-purple-100 transition">
-                        [cite_start]<span class="font-bold text-purple-900">PHASE 4: PLAY & TEST (Weeks 12-13) [cite: 73]</span>
-                        <svg class="w-5 h-5 transition-transform" :class="selected === 4 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div x-show="selected === 4" class="p-4 text-sm border-t space-y-2 text-gray-700">
-                        [cite_start]<p><strong>Focus:</strong> Build, Iterate, and Playtest with data collection. [cite: 74]</p>
-                        [cite_start]<p><strong>Activities:</strong> Micro-teaching, Usability testing protocols, Feedback analysis. [cite: 97]</p>
-                        [cite_start]<p class="text-purple-600 font-semibold italic">Deliverables: Medium-fi Prototype, Testing Report. [cite: 150]</p>
-                    </div>
-                </div>
-
-                <div class="border rounded-lg overflow-hidden bg-white shadow-sm">
-                    <button @click="selected !== 5 ? selected = 5 : selected = null" class="w-full flex justify-between items-center p-4 bg-gray-100 hover:bg-gray-200 transition">
-                        [cite_start]<span class="font-bold text-gray-900">PHASE 5: REFLECT (Weeks 14-15) [cite: 75]</span>
-                        <svg class="w-5 h-5 transition-transform" :class="selected === 5 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div x-show="selected === 5" class="p-4 text-sm border-t space-y-2 text-gray-700">
-                        [cite_start]<p><strong>Focus:</strong> Showcase, Synthesis, and Professional Roadmapping. [cite: 75]</p>
-                        [cite_start]<p><strong>Activities:</strong> Virtual gallery walk, Collaborative manifesto, Course retrospective. [cite: 97]</p>
-                        [cite_start]<p class="font-semibold italic">Deliverables: Final Capstone Project, Reflective Portfolio. [cite: 150]</p>
+                    <div class="bg-usaBlue/5 p-6 rounded-xl">
+                        <h4 class="font-bold text-usaBlue uppercase text-xs mb-4">Miro Studio Task & Deliverable</h4>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-8 h-8 rounded-full bg-usaRed flex items-center justify-center text-white text-xs font-bold">!</div>
+                            <span class="font-bold" x-show="week == 1">Miro Icebreaker: Map your AI life.</span>
+                            <span class="font-bold" x-show="week == 5">Workshop: Ethical Dilemma Card Game.</span>
+                        </div>
+                        <div class="text-sm bg-white p-4 rounded border border-usaBlue/10 shadow-sm">
+                            <strong>Deliverable:</strong> <span x-show="week == 1">Reflection Journal #1</span><span x-show="week == 5">Ethical Analysis Brief</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section class="grid md:grid-cols-2 gap-12">
-            <div class="bg-blue-900 text-white p-8 rounded-2xl shadow-xl">
-                [cite_start]<h2 class="text-2xl font-bold mb-4">AI Tool Policy [cite: 172]</h2>
-                <ul class="space-y-3 text-sm opacity-90">
-                    [cite_start]<li>• <strong>Active Exploration:</strong> Use AI as subject matter and design support. [cite: 173]</li>
-                    [cite_start]<li>• <strong>Transparency:</strong> Disclose tools, purpose, and human editing applied. [cite: 174]</li>
-                    [cite_start]<li>• <strong>Judgment:</strong> Critical evaluation of AI outputs is always expected. [cite: 175]</li>
-                </ul>
-            </div>
-            <div class="bg-white p-8 rounded-2xl shadow-md border">
-                [cite_start]<h2 class="text-2xl font-bold text-blue-900 mb-4">Miro Workspace [cite: 188]</h2>
-                [cite_start]<p class="text-sm text-gray-600 mb-4">Our "Design Studio" for the semester: [cite: 189]</p>
-                <div class="grid grid-cols-2 gap-2 text-xs font-semibold uppercase tracking-wider text-blue-600">
-                    [cite_start]<span class="bg-blue-50 p-2 rounded">Course Hub [cite: 190]</span>
-                    [cite_start]<span class="bg-blue-50 p-2 rounded">Research Commons [cite: 192]</span>
-                    [cite_start]<span class="bg-blue-50 p-2 rounded">Individual Portfolios [cite: 193]</span>
-                    [cite_start]<span class="bg-blue-50 p-2 rounded">Showcase Gallery [cite: 195]</span>
+        <div x-show="activeTab === 'grading'" x-transition x-cloak>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-t-8 border-usaRed">
+                    <h2 class="text-2xl font-header font-bold text-usaBlue mb-6">Assessment Weights</h2>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center border-b pb-2">
+                            <span>Final Project (Capstone)</span>
+                            <span class="font-bold text-usaRed">15%</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b pb-2">
+                            <span>Midterm Position Paper</span>
+                            <span class="font-bold text-usaRed">15%</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b pb-2">
+                            <span>Final Reflective Portfolio</span>
+                            <span class="font-bold text-usaRed">10%</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b pb-2">
+                            <span>Ethical Analysis Brief</span>
+                            <span class="font-bold text-usaRed">10%</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b pb-2">
+                            <span>Design Brief & Prototypes</span>
+                            <span class="font-bold text-usaRed">10%</span>
+                        </div>
+                        <div class="text-xs text-gray-500 mt-4 italic">+ Various journals, logs, and exercises totaling 40%</div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="bg-usaBlue text-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-xl font-bold mb-4">AI Tool Use Policy</h3>
+                        <p class="text-sm leading-relaxed mb-4 opacity-90">
+                            Transparent exploration is encouraged. Disclosure of the tool, the purpose, and the "human judgment" applied is <strong>mandatory</strong>.
+                        </p>
+                        <p class="text-xs border border-white/20 p-3 rounded">
+                            "AI-generated content submitted without disclosure or substantial human contribution violates academic integrity."
+                        </p>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+
+        <div x-show="activeTab === 'frameworks'" x-transition x-cloak>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-md border-b-8 border-blue-400">
+                    <h3 class="font-header font-bold text-blue-600 text-xl mb-4">Elementary (K-5)</h3>
+                    <p class="text-xs font-bold text-gray-400 mb-2 uppercase">Core Focus</p>
+                    <p class="text-sm mb-4 italic">"Awareness & Exploration"</p>
+                    <div class="space-y-3">
+                        <div class="bg-blue-50 p-3 rounded text-xs">
+                            <strong>Platform:</strong> YouTube Kids, Scratch, Siri
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded text-xs">
+                            <strong>Play:</strong> "Robot or Human?" guessing games.
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-md border-b-8 border-green-500">
+                    <h3 class="font-header font-bold text-green-700 text-xl mb-4">Middle School (6-8)</h3>
+                    <p class="text-xs font-bold text-gray-400 mb-2 uppercase">Core Focus</p>
+                    <p class="text-sm mb-4 italic">"Understanding & Evaluation"</p>
+                    <div class="space-y-3">
+                        <div class="bg-green-50 p-3 rounded text-xs">
+                            <strong>Platform:</strong> TikTok feeds, Canva, ChatGPT
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded text-xs">
+                            <strong>Play:</strong> Escape Room: "Break the Filter Bubble."
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-md border-b-8 border-usaRed">
+                    <h3 class="font-header font-bold text-usaRed text-xl mb-4">High School (9-12)</h3>
+                    <p class="text-xs font-bold text-gray-400 mb-2 uppercase">Core Focus</p>
+                    <p class="text-sm mb-4 italic">"Application & Advocacy"</p>
+                    <div class="space-y-3">
+                        <div class="bg-red-50 p-3 rounded text-xs">
+                            <strong>Platform:</strong> Perplexity, GitHub Copilot, Gemini
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded text-xs">
+                            <strong>Play:</strong> Courtroom Simulation: "Put AI on Trial."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </main>
 
-    <footer class="bg-gray-100 py-8 px-6 text-center text-gray-500 text-sm border-t mt-12">
-        <p>© 2026 University of South Alabama | College of Education and Professional Studies</p>
-        [cite_start]<p class="mt-2">Last updated: February 2026 [cite: 205]</p>
+    <footer class="bg-usaBlue text-white py-12 px-6 mt-12 border-t-8 border-usaRed">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start space-y-8 md:space-y-0">
+            <div class="max-w-md">
+                <h4 class="font-header font-bold text-usaSilver mb-2 uppercase tracking-widest text-sm">Academic Integrity</h4>
+                <p class="text-xs opacity-70 leading-relaxed">
+                    This syllabus aligns with Alabama Administrative Code (r. 290-3-3-.48), Praxis II 5311 standards, and 2019 ALA/AASL School Librarian Preparation Standards.
+                </p>
+            </div>
+            <div class="text-xs space-y-2 opacity-70">
+                <p><strong>University Libraries:</strong> library.southalabama.edu</p>
+                <p><strong>Help Desk:</strong> (251) 460-6161</p>
+                <p><strong>Last Updated:</strong> February 2026</p>
+            </div>
+        </div>
+        <div class="text-center mt-12 pt-8 border-t border-white/10 text-[10px] uppercase tracking-widest opacity-40">
+            © 2026 University of South Alabama
+        </div>
     </footer>
 
 </body>
